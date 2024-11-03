@@ -1,0 +1,48 @@
+﻿@model knowLib.Models.Artigo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Detalhes do Artigo</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Artigo</h4>
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Titulo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Resumo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Resumo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.DOI)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DOI)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Arquivo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Arquivo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.DataPublicacao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataPublicacao)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Revista)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Revista)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Volume)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Volume)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Edicao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Edicao)</dd>
+            </dl>
+
+            <div class="mt-4">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-info mr-2" })
+                @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

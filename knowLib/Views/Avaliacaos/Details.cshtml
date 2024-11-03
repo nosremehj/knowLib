@@ -1,0 +1,41 @@
+﻿@model knowLib.Models.Avaliacao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Detalhes da Avaliação</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Informações da Avaliação</h5>
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">Titulo do Artigo:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Artigo.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">Titulo do Ebook:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Ebook.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Usuario.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Usuario.Email)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Comentario)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Comentario)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Nota)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nota)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.DataAvaliacao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataAvaliacao)</dd>
+            </dl>
+
+            <div class="mt-4">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-info mr-2" })
+                @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

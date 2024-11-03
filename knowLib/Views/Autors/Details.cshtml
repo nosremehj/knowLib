@@ -1,0 +1,38 @@
+﻿@model knowLib.Models.Autor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Detalhes do Autor</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Informações do Autor</h5>
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Instituicao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Instituicao)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.EmailContato)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.EmailContato)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Bio)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Bio)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.OrcId)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.OrcId)</dd>
+            </dl>
+
+            <div class="mt-4">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-info mr-2" })
+                @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

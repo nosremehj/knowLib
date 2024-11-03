@@ -1,0 +1,51 @@
+﻿@model knowLib.Models.Avaliacao
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Excluir Avaliação</h2>
+
+    <div class="alert alert-danger">
+        <h4>Tem certeza de que deseja excluir esta avaliação?</h4>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Detalhes da Avaliação</h5>
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Artigo.Titulo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Artigo.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Ebook.Titulo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Ebook.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Usuario.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Usuario.Email)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Comentario)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Comentario)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Nota)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nota)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.DataAvaliacao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataAvaliacao)</dd>
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger mr-2">Excluir</button>
+                    @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

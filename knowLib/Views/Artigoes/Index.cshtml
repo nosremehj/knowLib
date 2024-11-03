@@ -1,0 +1,68 @@
+﻿@model IEnumerable<knowLib.Models.Artigo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Artigos</h2>
+
+    <p>
+        @Html.ActionLink("Criar Novo Artigo", "Create", null, new { @class = "btn btn-primary mb-3" })
+    </p>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+                <th>@Html.DisplayNameFor(model => model.Resumo)</th>
+                <th>@Html.DisplayNameFor(model => model.DOI)</th>
+                <th>@Html.DisplayNameFor(model => model.Arquivo)</th>
+                <th>@Html.DisplayNameFor(model => model.DataPublicacao)</th>
+                <th>@Html.DisplayNameFor(model => model.Revista)</th>
+                <th>@Html.DisplayNameFor(model => model.Volume)</th>
+                <th>@Html.DisplayNameFor(model => model.Edicao)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                    <td>
+                        <span class="d-inline-block text-truncate" style="max-width: 200px;" data-toggle="tooltip" title="@item.Resumo">
+                            @Html.DisplayFor(modelItem => item.Resumo)
+                        </span>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.DOI)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Arquivo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataPublicacao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Revista)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Volume)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Edicao)</td>
+                    <td class="text-nowrap">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-info mr-1" })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary mr-1" })
+                        @Html.ActionLink("Excluir", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    /* Estilo para truncar o texto com elipse */
+    .text-truncate-tooltip {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        cursor: pointer;
+    }
+</style>
+<script>$(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });</script>

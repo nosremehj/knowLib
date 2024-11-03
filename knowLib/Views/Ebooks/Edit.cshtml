@@ -1,0 +1,88 @@
+﻿@model knowLib.Models.Ebook
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Ebook</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Detalhes do Ebook</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger mb-4" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.Resumo, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Resumo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Resumo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.Arquivo, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Arquivo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Arquivo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.DataPublicacao, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.DataPublicacao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DataPublicacao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.NumeroPaginas, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.NumeroPaginas, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumeroPaginas, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    @Html.LabelFor(model => model.Idioma, htmlAttributes: new { @class = "col-sm-2 col-form-label font-weight-bold" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Idioma, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Idioma, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+                        @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

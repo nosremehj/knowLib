@@ -1,0 +1,62 @@
+﻿@model knowLib.Models.ArtigosEbooksViewModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Artigos e eBooks</h2>
+
+    <!-- Seção de Artigos -->
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h3>Artigos</h3>
+        </div>
+        @foreach (var artigo in Model.Artigos)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@artigo.Titulo</h5>
+                        <p class="card-text text-truncate" title="@artigo.Resumo" style="max-height: 3.5em; overflow: hidden;">
+                            @artigo.Resumo
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><strong>Data de Publicação:</strong> @artigo.DataPublicacao.ToShortDateString()</li>
+                            <li><strong>Revista:</strong> @artigo.Revista</li>
+                            <li><strong>Volume:</strong> @artigo.Volume</li>
+                            <li><strong>Edição:</strong> @artigo.Edicao</li>
+                        </ul>
+                        <a href="@Url.Action("DetailsArtigos", "ArtigosEbooks", new { id = artigo.Id })" class="btn btn-primary">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Seção de eBooks -->
+    <div class="row mt-5">
+        <div class="col-12 mb-3">
+            <h3>eBooks</h3>
+        </div>
+        @foreach (var ebook in Model.Ebooks)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@ebook.Titulo</h5>
+                        <p class="card-text text-truncate" title="@ebook.Resumo" style="max-height: 3.5em; overflow: hidden;">
+                            @ebook.Resumo
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><strong>Data de Publicação:</strong> @ebook.DataPublicacao.ToShortDateString()</li>
+                            <li><strong>Idioma:</strong> @ebook.Idioma</li>
+                            <li><strong>Número de Páginas:</strong> @ebook.NumeroPaginas</li>
+                        </ul>
+                        <a href="@Url.Action("DetailsEbooks", "ArtigosEbooks", new { id = ebook.Id })" class="btn btn-primary">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>$(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });</script>

@@ -1,0 +1,44 @@
+﻿@model knowLib.Models.Ebook
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Detalhes do Ebook</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Informações do Ebook</h5>
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Titulo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Resumo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Resumo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.ISBN)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ISBN)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Arquivo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Arquivo)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.DataPublicacao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataPublicacao)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.NumeroPaginas)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NumeroPaginas)</dd>
+
+                <dt class="col-sm-3 font-weight-bold">@Html.DisplayNameFor(model => model.Idioma)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Idioma)</dd>
+            </dl>
+
+            <div class="mt-4">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-info mr-2" })
+                @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<knowLib.Models.Avaliacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutGerente.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Avaliações</h2>
+
+    <p>
+        @Html.ActionLink("Criar Nova Avaliação", "Create", null, new { @class = "btn btn-primary mb-3" })
+    </p>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Artigo.Titulo)</th>
+                <th>@Html.DisplayNameFor(model => model.Ebook.Titulo)</th>
+                <th>@Html.DisplayNameFor(model => model.Usuario.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.Comentario)</th>
+                <th>@Html.DisplayNameFor(model => model.Nota)</th>
+                <th>@Html.DisplayNameFor(model => model.DataAvaliacao)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Artigo.Titulo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ebook.Titulo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Usuario.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Comentario)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nota)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataAvaliacao)</td>
+                    <td class="text-nowrap">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-info mr-1" })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary mr-1" })
+                        @Html.ActionLink("Excluir", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
